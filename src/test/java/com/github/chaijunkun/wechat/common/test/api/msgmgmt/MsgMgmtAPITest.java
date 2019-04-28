@@ -1,14 +1,14 @@
-package cn.com.autohome.mall.wechat.test.api.msgmgmt;
+package com.github.chaijunkun.wechat.common.test.api.msgmgmt;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
+import com.github.chaijunkun.wechat.common.test.BaseTest;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import cn.com.autohome.mall.wechat.test.BaseTest;
 import com.github.chaijunkun.wechat.common.api.WeChatAPIException;
 import com.github.chaijunkun.wechat.common.api.access.TokenAPI;
 import com.github.chaijunkun.wechat.common.api.access.TokenResult;

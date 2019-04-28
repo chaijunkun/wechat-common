@@ -1,4 +1,4 @@
-package cn.com.autohome.mall.wechat.test;
+package com.github.chaijunkun.wechat.common.test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
