@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM
+        "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<!--控制台输出appender -->
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %p [%t] - %C.%M(%L) | %m%n" />
+		</layout>
+		<!--设置日志级别过滤器 当日志级别在最低和最高之间(包括最低和最高)时 日志将被记录 -->
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="INFO" />
+			<param name="LevelMax" value="ERROR" />
+		</filter>
+	</appender>
+	<!-- 注册日志记录器 -->
+	<root>
+		<!--设置log4j记录日志的全局最小级别 级别从低到高 TRACE|DEBUG|INFO|WARN|ERROR|FATAL -->
+		<priority value="INFO" />
+		<!--关联根appender -->
+		<!--控制台输出appender -->
+		<appender-ref ref="CONSOLE" />
+	</root>
+</log4j:configuration>

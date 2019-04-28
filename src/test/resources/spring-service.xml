@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+           
+    <context:component-scan base-package="cn.com.autohome.mall.wechat.service" />
+    
+    <bean id="weChatAPIConfig" class="com.github.chaijunkun.wechat.common.WeChatAPIConfig">
+    	<property name="appId" value="${com.qq.weixin.mp.appId}" />
+    	<property name="secret" value="${com.qq.weixin.mp.appsecret}" />
+    	<property name="callbackToken" value="${com.qq.weixin.mp.callbackToken}" />
+    	<property name="encodingAESKey" value="${com.qq.weixin.mp.encodingAESKey}"></property>
+    </bean>
+    
+    <bean id="tokenAPIURLFactory" class="com.github.chaijunkun.wechat.common.api.access.TokenAPIURLFactory" />
+    <bean id="tokenAPI" class="com.github.chaijunkun.wechat.common.api.access.TokenAPI">
+    	<property name="urlFactory" ref="tokenAPIURLFactory" />
+    	<property name="config" ref="weChatAPIConfig" />
+    	<property name="redisTmpl" ref="redisTmpl" />
+    </bean>
+    
+    <bean id="msgMgmtURLFactory" class="com.github.chaijunkun.wechat.common.api.msgmgmt.MsgMgmtURLFactory" />
+    <bean id="msgMgmtAPI" class="com.github.chaijunkun.wechat.common.api.msgmgmt.MsgMgmtAPI">
+    	<property name="urlFactory" ref="msgMgmtURLFactory" />
+    </bean>
+    
+    
+</beans>
